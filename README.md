@@ -16,5 +16,5 @@
 - Number of visits of a certain URL.
 
 ####   To run it:
-Just download it and write the command below and open your browser on localhost:8000
+Just download it and write the command below and open your browser on localhost:5000
 > npm i
