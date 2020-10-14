@@ -1,6 +1,6 @@
 # Back-End Project (url-shortener)
 
-![Image](https://imgur.com/B1D2Nv6.png)
+![Image](https://imgur.com/cHWqvHm.png)
 ## Used technologies:
 - Front-end:
   - HTML + EJS
