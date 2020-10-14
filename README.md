@@ -11,6 +11,7 @@
   - method-override
   - shortid
 ## Features:
+- Follow MVC architecture.
 - Handling different pages (routes).
 - Create and delete a short URL.
 - Number of visits of a certain URL.
