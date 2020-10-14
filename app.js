@@ -14,7 +14,7 @@ const app = express()
 
 //==============================================
 // Connect to my database
-const PORT = process.env.PORT || 3434;
+const PORT = process.env.PORT || 5000;
 const URI = 'mongodb+srv://elbotanist:elbotanist@cluster0.iujbk.mongodb.net/nodeDatabase?retryWrites=true&w=majority';
 mongoose.connect(URI, {
     useNewUrlParser: true,
