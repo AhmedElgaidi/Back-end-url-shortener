@@ -1,0 +1,28 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "A url shortner app with node.js and mongodb",
+  "main": "app.js",
+  "scripts": {
+    "devStart": "nodemon app.js"
+  },
+  "keywords": [
+    "url-shortner",
+    "node.js",
+    "express.js",
+    "mongodb",
+    "mongoose",
+    "ejs",
+    "shortid",
+    "bulma"
+  ],
+  "author": "Elbotanist",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.10.9",
+    "shortid": "^2.2.15"
+  }
+}

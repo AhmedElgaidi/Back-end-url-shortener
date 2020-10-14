@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+<body>
+
+    <div class="container mt-6"style="max-width: 90%;">
+            <h1 class="title has-text-danger has-text-centered has-text-weight-semibold is-family-sans-serif">
+                Shorten your URL 
+            </h1>
+            <!-- start form -->
+            <form action="/"method="POST">
+                <div style="text-align: center;">
+                    <input class="input is-rounded is-outlined is-danger has-text-danger"style="max-width: 80%"type="text"name="fullURL"placeholder="Write this way: https://subdomains.domain.com">
+                </div>
+                <div style="text-align: center;">
+                    <button class="button is-rounded is-outlined is-danger mt-2 ml-2"type="submit">
+                        Shorten
+                    </button>
+                </div>
+            </form>
+            <!-- End form -->
+            <br>
+    </div>
+    <div class="container is-mobile"style="max-width: 70%;">
+            <!-- start-table -->
+            <% if(shortUrls.length > 0) { %> 
+                <div class="table-container columns">
+                    <table class="table is-bordered is-narow is-hoverable is-mobile is-fullwidth mt-4">
+                        <thead class="has-text-danger has-text-centered">
+                            <tr>
+                                <th style="color: #ea005e;"class="has-text-weight-semibold is-family-monospace has-background-danger-light">Full URL</th>
+                                <th style="color: #ea005e;"class="has-text-weight-semibold is-family-monospace has-background-danger-light">Short URL</th>
+                                <th style="color: #ea005e;"class="has-text-weight-semibold is-family-monospace has-background-danger-light">Clicks</th>
+                            </tr>
+                        </thead>
+                        <tbody class="has-text-centered">
+                            <% shortUrls.forEach(shortUrl => { %> 
+                                <tr>
+                                    <td>
+                                        <abbr title="URL">
+                                            <a style="color: #ea005e;"class="has-text-weight-light">
+                                                <%= shortUrl.full %>
+                                            </a>
+                                        </abbr>
+                                    </td>
+                                    <td>
+                                        <abbr title="click me">
+                                            <a style="color: #ea005e;"class="has-text-weight-light"href="<%= shortUrl.short %>">
+                                                https://<%= hostname %>/<%= shortUrl.short %> 
+                                            </a>
+                                        </abbr>
+                                    </td>
+                                    <td style="color: #ea005e;"class="has-text-weight-light">
+                                        <abbr title="Number of visits">
+                                            <%= shortUrl.clicks %>
+                                        </abbr>
+                                    </td>
+                                </tr>
+                            <% }) %> 
+                        </tbody>
+                    </table>
+                    <table class="table is-bordered is-narow is-hoverable is-mobile is-fullwidth column mt-1">
+                        <thead class="has-text-danger has-text-centered">
+                            <tr>
+                                <th style="color: #ea005e;"class="has-text-weight-semibold is-family-monospace has-background-danger-light">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% shortUrls.forEach(shortUrl => { %>
+                                <tr>
+                                    <form method="POST"action="/delete/<%= shortUrl.short %>/?_method=DELETE">
+                                        <td style="color: #ea005e;"class="has-text-weight-light">
+                                            <abbr title="Delete">
+                                                <input type="submit"value="Delete">
+                                                </input>
+                                            </abbr>
+                                        </td>
+                                    </form>
+                                </tr>
+                            <% }) %> 
+                        </tbody>
+                    </table>
+                </div>
+            <% } %> 
+            <!-- End-table -->
+    </div>
+</body>
+</html>
